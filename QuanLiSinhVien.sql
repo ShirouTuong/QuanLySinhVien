@@ -100,3 +100,29 @@ FROM Student S
 JOIN Mark M ON S.StudentID = M.StudentID
 JOIN Subject Sub ON M.SubID = Sub.SubID
 WHERE Sub.SubName = 'CF';
+
+USE QuanLySinhVien;
+
+SELECT *
+FROM Student
+WHERE StudentName LIKE 'h%';
+
+SELECT *
+FROM Class
+WHERE MONTH(StartDate) = 12;
+
+SELECT *
+FROM Subject
+WHERE Credit BETWEEN 3 AND 5;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE Student
+SET ClassID = 2
+WHERE StudentName = 'Hung';
+
+SELECT S.StudentName, Sub.SubName, M.Mark
+FROM Student S
+JOIN Mark M ON S.StudentID = M.StudentID
+JOIN Subject Sub ON M.SubID = Sub.SubID
+ORDER BY M.Mark DESC, S.StudentName ASC;
