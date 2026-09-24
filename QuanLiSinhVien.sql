@@ -76,3 +76,27 @@ VALUES
 (1, 1, 1, 8, 1),
 (2, 1, 2, 10, 2),
 (3, 2, 1, 12, 1);
+
+USE QuanLySinhVien;
+
+SELECT *
+FROM Student;
+
+SELECT *
+FROM Student
+WHERE Status = TRUE;
+
+SELECT *
+FROM Subject
+WHERE Credit < 10;
+
+SELECT S.StudentID, S.StudentName, C.ClassName
+FROM Student S
+JOIN Class C ON S.ClassID = C.ClassID
+WHERE C.ClassName = 'A1';
+
+SELECT S.StudentID, S.StudentName, Sub.SubName, M.Mark
+FROM Student S
+JOIN Mark M ON S.StudentID = M.StudentID
+JOIN Subject Sub ON M.SubID = Sub.SubID
+WHERE Sub.SubName = 'CF';
